@@ -1,6 +1,6 @@
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
-source $HOME/vimfiles/autoload/plug.vim
+source $HOME/.vim/autoload/plug.vim
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
@@ -127,7 +127,28 @@ map <Leader>T :tab term ++close<cr>
 tmap <Leader>T <c-w>:tab term ++close<cr>
 
 " Set PowerShell to Vims Default Terminal"
-set shell=powershell
+set shell=bash
 
 " Default to numbering new buffers"
 set nu
+
+" Set the default tab space
+set tabstop=4 
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" YCM
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+filetype plugin indent on 
